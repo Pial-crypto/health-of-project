@@ -95,73 +95,66 @@ useProtectedRoute(setUser,{clientHome:true,setFeedbacks,setProjects},"client",se
           </Card>
         ) : (
           feedbacks.slice(0,4).map((feedback) => (<div>
-        <CardBody className="space-y-6 p-6 bg-white shadow-xl rounded-2xl">
+            <Card key={feedback._id}>
+<CardBody className="p-6 bg-white shadow rounded-xl space-y-5">
 
   {/* Project Header */}
-  <div className="flex items-center justify-between gap-5">
-    <div className="flex items-center gap-5">
-      <div className="flex h-14 w-14 items-center justify-center rounded-full bg-blue-100 text-blue-600 text-3xl font-extrabold">
-        {"📁"}
-      </div>
-      <div>
-        <h3 className="text-3xl font-bold text-gray-900">
-          {projects.find((p) => p._id === feedback.projectId)?.name || "Unknown Project"} 🚀
-        </h3>
-        <p className="flex items-center gap-2 text-base text-gray-500">
-          <CalendarDays className="h-5 w-5 text-gray-400" />
-          {new Date(feedback.timeStamp).toLocaleDateString()}
-        </p>
-      </div>
+  <div className="flex items-center gap-4">
+    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gray-100 text-gray-700 text-2xl font-bold">
+      📁
     </div>
     <div>
- 
+      <h3 className="text-2xl font-bold text-gray-900">
+        {projects.find((p) => p._id === feedback.projectId)?.name || "Unknown Project"}
+      </h3>
+      <p className="flex items-center gap-1 text-sm text-gray-500 font-semibold">
+        <CalendarDays className="h-5 w-5 text-gray-400" />
+        {new Date(feedback.timeStamp).toLocaleDateString()}
+      </p>
     </div>
   </div>
 
   {/* Comment Section */}
-  <p className="text-xl text-gray-800 font-semibold">
+  <p className="text-gray-900 text-lg font-bold">
     💬 {feedback.comment || "No comment provided."}
   </p>
 
   {/* Ratings */}
-  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 text-lg">
-    <div className="flex items-center gap-4">
-      <span className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-5 py-2 text-base font-medium text-emerald-700">
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div className="flex justify-between items-center">
+      <span className="inline-flex items-center gap-2 text-sm font-bold text-gray-800 bg-gray-100 px-4 py-1 rounded-full">
         ⭐ Satisfaction
       </span>
-      <span className="text-gray-900 font-bold text-2xl">
-        {feedback.satisfactionRating}/5
-      </span>
+      <span className="text-gray-900 font-bold text-xl">{feedback.satisfactionRating}/5</span>
     </div>
-    <div className="flex items-center gap-4">
-      <span className="inline-flex items-center gap-2 rounded-full bg-indigo-50 px-5 py-2 text-base font-medium text-indigo-700">
+    <div className="flex justify-between items-center">
+      <span className="inline-flex items-center gap-2 text-sm font-bold text-gray-800 bg-gray-100 px-4 py-1 rounded-full">
         💬 Communication
       </span>
-      <span className="text-gray-900 font-bold text-2xl">
-        {feedback.communicationClarity}/5
-      </span>
+      <span className="text-gray-900 font-bold text-xl">{feedback.communicationClarity}/5</span>
     </div>
   </div>
 
   {/* Issue Section */}
-  <div className="mt-4">
-    <p className="text-sm font-semibold text-gray-500 mb-2 uppercase tracking-wide">
+  <div>
+    <p className="text-xs text-gray-500 font-semibold uppercase mb-2">
       ⚠️ Reported Issue
     </p>
     {feedback.issueDescription ? (
-      <div className="flex items-center gap-4 rounded-2xl bg-amber-50 px-6 py-3 text-lg text-amber-800 border border-amber-200 shadow-sm">
-        <span className="text-3xl">🚨</span>
-        <span className="font-semibold text-gray-900">
-          {feedback.issueDescription}
-        </span>
+      <div className="flex items-center gap-2 px-5 py-2 border border-gray-300 rounded-md bg-gray-50 text-gray-900 text-sm font-bold">
+        <span className="text-lg">🚨</span>
+        <span>{feedback.issueDescription}</span>
       </div>
     ) : (
-      <p className="text-lg text-gray-500 font-semibold flex items-center gap-2">
+      <p className="text-gray-500 text-sm font-bold flex items-center gap-1">
         ✅ No issue reported
       </p>
     )}
   </div>
+
 </CardBody>
+
+</Card>
 <div className="h-2"/>
 <div className="h-2"/>
 </div>

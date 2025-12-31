@@ -147,7 +147,7 @@ console.log(projectRisks," ",projectFeedbacks," ",projectCheckIns," ")
                     <span
                       className={`text-xs font-semibold px-2.5 py-0.5 rounded-full ${risk.status === "open" ? "bg-blue-100 text-blue-800" : "bg-gray-100 text-gray-800"}`}
                     >
-                      {risk.status.toUpperCase()}
+                      {risk.solved? "Solved" :"Need to take actions"}
                     </span>
                   </div>
                 </div>

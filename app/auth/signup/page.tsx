@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 import { Button, Input, Alert, Card, CardBody } from "@/app/components";
 import toast from "react-hot-toast";
 import { createUser } from "@/lib/utils/api";
+import Link from "next/link";
+
 
 export default function SignupPage() {
   const router = useRouter();
@@ -220,6 +222,18 @@ export default function SignupPage() {
                 Create Admin
               </Button>
             </form>
+
+               <div className="mt-8 text-center">
+              <p className="text-sm text-gray-700">
+                Already have an admin account?{" "}
+                <Link
+                  href="/auth/login"
+                  className="text-blue-600 hover:text-blue-700 font-semibold underline"
+                >
+                  Login
+                </Link>
+              </p>
+            </div>
 
            {/* {UserStorage.load()?.role==="admin" && (
               <div className="mt-8 pt-6 border-t border-gray-200 text-center">

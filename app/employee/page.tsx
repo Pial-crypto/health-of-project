@@ -64,7 +64,7 @@ export default function EmployeeDashboard() {
       <div className="text-4xl font-bold text-yellow-600 mb-2 flex justify-center items-center gap-2">
         ⏳ {checkIns.length}
       </div>
-      <p className="text-sm text-gray-600 uppercase tracking-wide">Pending Check-ins</p>
+      <p className="text-sm text-gray-600 uppercase tracking-wide">Total Check-ins</p>
     </CardBody>
   </Card>
 
