@@ -105,7 +105,7 @@ useProtectedRoute(setUser,{},"client",setIsLoading)
           </p>
         </div>
 <CardBody>
-      <form onSubmit={handleSubmit} className="space-y-8" hover>
+      <form onSubmit={handleSubmit} className="space-y-8" >
 
   {/* Submit Error */}
   {errors.submit && (
